@@ -78,21 +78,24 @@ function draw() {
   drawSprites();
   
   if(keyIsDown(LEFT_ARROW)) {
-	packageSprite.x= packageSprite.position.x-5
-	packageSprite.x = packageSprite.x-5
+   
 	helicopterSprite.x = helicopterSprite.x-5	
+	translation = {x:-5 , y:0}	
+	Matter.Body.translate(packageBody , translation)
   }
   if(keyIsDown(RIGHT_ARROW)) {
-	packageSprite.x= packageSprite.position.x+5
-	packageSprite.x = packageSprite.x+5
+
 	helicopterSprite.x = helicopterSprite.x+5
+	
+	translation = {x:+5 , y:0}
+	Matter.Body.translate(packageBody , translation)
   }
 
-  if(keyIsDown(UP_ARROW)) {
-	helicopterSprite.y = helicopterSprite.y-5
-  }
+  
+
   if(keyIsDown(DOWN_ARROW)) {
-	packageBody.isStatic = false	
+	Matter.Body.setStatic(packageBody,false);
   }
  
+  
 }
